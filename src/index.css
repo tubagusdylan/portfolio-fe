@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.navbar-fixed {
+  @apply bg-opacity-80 shadow-md;
+  backdrop-filter: blur(7px);
+}
+
+.hamburger-line {
+  @apply w-[30px] h-[2px] rounded-lg bg-blue transition-all duration-200 ease-in-out;
+}
+
+.hamburger-active > div:nth-child(1) {
+  @apply rotate-45 bg-orange;
+}
+
+.hamburger-active > div:nth-child(3) {
+  @apply -rotate-45 bg-orange;
+}
+
+.hamburger-active > div:nth-child(2) {
+  @apply scale-0;
+}
+
+.hover-nav {
+  @apply text-orange underline underline-offset-8;
+}
+
+.template-home-style {
+  @apply px-4 pb-28 lg:px-24 xl:px-40 w-full;
+}
+
+.socmed-style {
+  @apply border-2 p-2 rounded-full hover:bg-grey hover:-translate-y-1 transition-all duration-200 ease-in-out;
+}
+
+.active {
+  @apply border-r-8 border-r-orange bg-orange bg-opacity-20 font-semibold;
+}
