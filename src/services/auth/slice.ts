@@ -9,7 +9,7 @@ const authSlice = createSlice({
   reducers: {
     setAuthUser: (state, action) => {
       state.username = action.payload.username;
-      state.profileName = action.payload.profile_name;
+      state.profileName = action.payload.profileName;
     },
     setLogoutUser: (state) => {
       state.username = "";

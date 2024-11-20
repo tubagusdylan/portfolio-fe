@@ -2,6 +2,7 @@ import { createApi } from "@reduxjs/toolkit/query/react";
 import { fetchBaseQuery } from "@reduxjs/toolkit/query";
 import type { BaseQueryFn, FetchArgs, FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { toast } from "react-toastify";
+import PATH from "@config/path";
 
 const BASE_URL = import.meta.env.VITE_BASE_URL_STG;
 
@@ -25,8 +26,8 @@ export const baseQueryWithAuth: BaseQueryFn<string | FetchArgs, unknown, FetchBa
     } catch (error) {
       toast.error("Your session has closed. Please login again.");
       setTimeout(() => {
-        window.location.href = `${window.location.origin}`;
-      }, 500);
+        window.location.href = `${window.location.origin}${PATH.LOGIN_PAGE}`;
+      }, 1000);
     }
   }
 

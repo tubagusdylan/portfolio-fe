@@ -1,5 +1,4 @@
 import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import { setAuthUser, setLogoutUser } from "./slice";
 import { useAppDispatch } from "@services/hooks";
@@ -8,24 +7,26 @@ import { toast } from "react-toastify";
 import PATH from "@config/path";
 
 interface JwtPayload {
+  id: string;
   username: string;
-  profile_name: string;
+  profileName: string;
+  isAdmin: string;
 }
 
 export const AuthState = () => {
-  const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const { data, error } = useRefreshTokenQuery();
+  const { data, isError } = useRefreshTokenQuery();
   const [logout] = useLogoutMutation();
 
   const setAuthUserState = useCallback(() => {
-    if (error) {
-      return navigate(PATH.LOGIN_PAGE);
+    if (isError) {
+      return (window.location.href = `${window.location.origin}${PATH.LOGIN_PAGE}`);
     }
     const decoded: JwtPayload = jwtDecode(data?.data.token as string);
+
     const payload = {
       username: decoded.username,
-      profileName: decoded.profile_name,
+      profileName: decoded.profileName,
     };
 
     dispatch(setAuthUser(payload));
