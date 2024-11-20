@@ -4,7 +4,6 @@ import { setAuthUser, setLogoutUser } from "./slice";
 import { useAppDispatch } from "@services/hooks";
 import { useRefreshTokenQuery, useLogoutMutation } from "./api";
 import { toast } from "react-toastify";
-import PATH from "@config/path";
 
 interface JwtPayload {
   id: string;
@@ -15,21 +14,24 @@ interface JwtPayload {
 
 export const AuthState = () => {
   const dispatch = useAppDispatch();
-  const { data, isError } = useRefreshTokenQuery();
+  const { data, isLoading, isError } = useRefreshTokenQuery();
   const [logout] = useLogoutMutation();
 
   const setAuthUserState = useCallback(() => {
     if (isError) {
-      return (window.location.href = `${window.location.origin}${PATH.LOGIN_PAGE}`);
+      return;
     }
-    const decoded: JwtPayload = jwtDecode(data?.data.token as string);
 
-    const payload = {
-      username: decoded.username,
-      profileName: decoded.profileName,
-    };
+    if (!isLoading && data?.data) {
+      const decoded: JwtPayload = jwtDecode(data?.data.token as string);
 
-    dispatch(setAuthUser(payload));
+      const payload = {
+        username: decoded.username,
+        profileName: decoded.profileName,
+      };
+
+      return dispatch(setAuthUser(payload));
+    }
   }, []);
 
   const setLogoutUserState = useCallback(async () => {
