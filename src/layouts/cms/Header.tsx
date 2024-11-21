@@ -1,8 +1,8 @@
 import Logo from "@assets/img/logo.png";
 import MenuCMS from "@components/MenuCMS";
 import { FC } from "react";
-// import { useAppSelector } from "@services/hooks";
-// import { UsersState } from "@services/users/state";
+import { useAppSelector } from "@services/hooks";
+import { AuthState } from "@services/auth/state";
 import { CgProfile } from "react-icons/cg";
 import { RiLogoutBoxLine } from "react-icons/ri";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -18,8 +18,8 @@ interface HeaderProps {
 }
 
 const Header: FC<HeaderProps> = ({ currentMenu, handleCurrentMenu, isShowMenuFloat, isShowNavbar, handleShowMenuFloat, handleShowNavbar }) => {
-  // const user = useAppSelector((state) => state.userReducer.user);
-  // const { setUserProfileLogout } = UsersState();
+  const auth = useAppSelector((state) => state.auth);
+  const { setLogoutUserState } = AuthState();
 
   return (
     <header className="w-full top-0 left-0 fixed bg-white z-50 shadow-sm">
@@ -37,8 +37,8 @@ const Header: FC<HeaderProps> = ({ currentMenu, handleCurrentMenu, isShowMenuFlo
           <div className="flex items-center gap-1 lg:gap-5 cursor-pointer" onClick={handleShowMenuFloat}>
             <CgProfile size={30} className="text-grey" />
             <div>
-              {/* <p className="hidden lg:block text-grey">{user.profileName}</p>
-              <p className="hidden lg:block text-grey text-sm">{user.roleName}</p> */}
+              <p className="hidden lg:block text-grey font-semibold">{auth.profileName}</p>
+              <p className="hidden lg:block text-grey text-sm">{auth.role}</p>
             </div>
             {!isShowMenuFloat ? <IoIosArrowDown className="text-grey" /> : <IoIosArrowUp className="text-grey" />}
           </div>
@@ -46,14 +46,14 @@ const Header: FC<HeaderProps> = ({ currentMenu, handleCurrentMenu, isShowMenuFlo
         {isShowMenuFloat && (
           <div className="absolute top-20 right-4 lg:right-10  bg-white shadow-md">
             <div className="py-4 px-6 border-b border-grey lg:hidden">
-              {/* <p className="text-grey">{user.profileName}</p>
-              <p className="text-grey text-sm">{user.roleName}</p> */}
+              <p className="text-grey font-semibold">{auth.profileName}</p>
+              <p className="text-grey text-sm">{auth.role}</p>
             </div>
             <div className="py-4 px-6 hover:bg-slate-100 hover:bg-opacity-30 cursor-pointer">
               <RiLogoutBoxLine className="text-grey inline-block mr-2" size={20} />
-              {/* <span className="text-grey" onClick={setUserProfileLogout}>
+              <span className="text-grey" onClick={setLogoutUserState}>
                 Log out
-              </span> */}
+              </span>
             </div>
           </div>
         )}

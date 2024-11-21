@@ -28,9 +28,10 @@ export const AuthState = () => {
       const payload = {
         username: decoded.username,
         profileName: decoded.profileName,
+        isAdmin: decoded.isAdmin,
       };
 
-      return dispatch(setAuthUser(payload));
+      dispatch(setAuthUser(payload));
     }
   }, []);
 
