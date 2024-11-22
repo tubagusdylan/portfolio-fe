@@ -35,7 +35,7 @@ export const userApi = baseApi.injectEndpoints({
       query: (data) => {
         return {
           url: `/api/v1/admin/users/${data.id}`,
-          method: "POST",
+          method: "PUT",
           body: data,
         };
       },
