@@ -36,6 +36,6 @@ export const baseQueryWithAuth: BaseQueryFn<string | FetchArgs, unknown, FetchBa
 
 export const baseApi = createApi({
   baseQuery: baseQueryWithAuth,
-  tagTypes: ["Auth", "Users", "Blogs", "MyProjects"],
+  tagTypes: ["Auth", "Users", "Blogs", "BlogImages", "MyProjects"],
   endpoints: () => ({}),
 });
