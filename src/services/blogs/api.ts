@@ -12,7 +12,7 @@ export const blogApi = baseApi.injectEndpoints({
       },
       providesTags: ["Blogs"],
     }),
-    getBlogs: builder.query<ResponseBlogs, { page: string; limit: string; category?: string; title?: string }>({
+    getBlogs: builder.query<ResponseBlogs, { page: number; limit: number; category?: string; title?: string }>({
       query: (params) => {
         return {
           url: `/api/v1/admin/blogs`,
