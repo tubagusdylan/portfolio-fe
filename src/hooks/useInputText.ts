@@ -1,6 +1,6 @@
 import { useState, ChangeEvent } from "react";
 
-type useInput = [string, (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => void];
+type useInput = [string, (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => void, (newValue: string) => void];
 
 export const useInputText = (defaultValue: string = ""): useInput => {
   const [value, setValue] = useState(defaultValue);
@@ -9,5 +9,9 @@ export const useInputText = (defaultValue: string = ""): useInput => {
     setValue(event.target.value);
   };
 
-  return [value, onValueChangeHandler];
+  const onSetValueHandler = (newValue: string) => {
+    setValue(newValue);
+  };
+
+  return [value, onValueChangeHandler, onSetValueHandler];
 };

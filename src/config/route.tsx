@@ -47,7 +47,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: PATH.EDIT_USERS_PAGE,
+    path: `${PATH.EDIT_USERS_PAGE}/:id`,
     element: (
       <AuthProvider>
         <EditUserPage />

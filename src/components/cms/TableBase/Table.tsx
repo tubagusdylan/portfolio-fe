@@ -1,15 +1,16 @@
 import Button from "@components/cms/Button";
 import { TableHeader } from "@static/tableHeader";
+import { useNavigate } from "react-router-dom";
 
 interface TableProps<T> {
   theaders: TableHeader<T>[];
   tbodies: T[];
   canEdit?: boolean;
   canDelete?: boolean;
+  pathEdit: string;
   isLoading: boolean;
   isError: boolean;
-  editHandler?: () => void;
-  deleteHandler?: () => void;
+  deleteHandler: (id: string) => void;
 }
 
 const options: Intl.DateTimeFormatOptions = {
@@ -18,7 +19,8 @@ const options: Intl.DateTimeFormatOptions = {
   day: "numeric",
 };
 
-function Table<T>({ theaders, tbodies, editHandler, canEdit, canDelete, deleteHandler, isLoading, isError }: TableProps<T>) {
+function Table<T>({ theaders, tbodies, canEdit, canDelete, pathEdit, deleteHandler, isLoading, isError }: TableProps<T>) {
+  const navigate = useNavigate();
   return (
     <table className="table-auto w-full border border-collapse border-slate-500">
       <thead>
@@ -56,12 +58,12 @@ function Table<T>({ theaders, tbodies, editHandler, canEdit, canDelete, deleteHa
                 <td className="border border-slate-500 text-left p-2">
                   <div className="flex gap-1">
                     {canEdit && (
-                      <Button variant="primary" type="edit" size="sm" onClick={editHandler}>
+                      <Button variant="primary" type="edit" size="sm" onClick={() => navigate(`${pathEdit}/${JSON.parse(JSON.stringify(item)).id}`)}>
                         Edit
                       </Button>
                     )}
                     {canDelete && (
-                      <Button variant="primary" type="delete" size="sm" onClick={deleteHandler}>
+                      <Button variant="primary" type="delete" size="sm" onClick={() => deleteHandler(JSON.parse(JSON.stringify(item)).id)}>
                         Delete
                       </Button>
                     )}
@@ -75,9 +77,5 @@ function Table<T>({ theaders, tbodies, editHandler, canEdit, canDelete, deleteHa
     </table>
   );
 }
-
-// const Table: FC<TableProps> = ({ theaders, tbodies, editHandler, canEdit, canDelete, deleteHandler }) => {
-
-// };
 
 export default Table;

@@ -1,6 +1,6 @@
 import { useState, ChangeEvent } from "react";
 
-type useSelect = [string, (event: ChangeEvent<HTMLSelectElement>) => void];
+type useSelect = [string, (event: ChangeEvent<HTMLSelectElement>) => void, (newValue: string) => void];
 
 export const useSelect = (defaultValue: string = ""): useSelect => {
   const [value, setValue] = useState(defaultValue);
@@ -9,5 +9,9 @@ export const useSelect = (defaultValue: string = ""): useSelect => {
     setValue(event.target.value);
   };
 
-  return [value, onValueChangeHandler];
+  const onSetValueHandler = (newValue: string) => {
+    setValue(newValue);
+  };
+
+  return [value, onValueChangeHandler, onSetValueHandler];
 };
