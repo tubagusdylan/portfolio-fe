@@ -15,7 +15,7 @@ const ManageUserPage = () => {
     <Template>
       <h1 className="text-2xl font-bold text-blue">Daftar User</h1>
       <div className="flex justify-end">
-        <Button type="add" size="md" onClick={() => navigate(PATH.ADD_USERS_PAGE)}>
+        <Button variant="primary" type="add" size="md" onClick={() => navigate(PATH.ADD_USERS_PAGE)}>
           Tambah User
         </Button>
       </div>

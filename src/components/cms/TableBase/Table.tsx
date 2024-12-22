@@ -56,12 +56,12 @@ function Table<T>({ theaders, tbodies, editHandler, canEdit, canDelete, deleteHa
                 <td className="border border-slate-500 text-left p-2">
                   <div className="flex gap-1">
                     {canEdit && (
-                      <Button type="edit" size="sm" onClick={editHandler}>
+                      <Button variant="primary" type="edit" size="sm" onClick={editHandler}>
                         Edit
                       </Button>
                     )}
                     {canDelete && (
-                      <Button type="delete" size="sm" onClick={deleteHandler}>
+                      <Button variant="primary" type="delete" size="sm" onClick={deleteHandler}>
                         Delete
                       </Button>
                     )}

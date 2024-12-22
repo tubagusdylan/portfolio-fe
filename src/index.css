@@ -38,3 +38,11 @@
 .active {
   @apply border-r-8 border-r-orange bg-orange bg-opacity-20 font-semibold;
 }
+
+.primary-btn {
+  @apply flex gap-x-2 items-center text-center bg-orange text-white py-2 px-3 rounded-md hover:bg-dark-orange transition-all duration-300 ease-in-out;
+}
+
+.secondary-btn{
+  @apply flex gap-x-2 items-center text-center bg-[#f8e7d2] text-[#ff6200] py-2 px-3 rounded-md hover:bg-[#e9d5cc] transition-all duration-300 ease-in-out;
+}
