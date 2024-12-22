@@ -40,15 +40,16 @@ const EditUserPage = () => {
     setNewData(data);
   };
 
-  const onCloseModal = () => {
-    setIsOpenModal(false);
-  };
-
   return (
     <Template>
       <h1 className="text-2xl font-bold text-blue">Edit User</h1>
       <FormUser action="edit" onSubmit={updateUserHandler} dataEdit={data?.data} isSuccessGetData={isSuccess} />
-      <ConfirmationModal isOpen={isOpenModal} types="update" onRequestClose={onCloseModal} title="Update User" onSubmitData={onSubmitUpdatedData}>
+      <ConfirmationModal
+        isOpen={isOpenModal}
+        types="update"
+        onRequestClose={() => setIsOpenModal(false)}
+        title="Update User"
+        onSubmitData={onSubmitUpdatedData}>
         Anda yakin ingin mengubah data user ini?
       </ConfirmationModal>
     </Template>
