@@ -22,7 +22,7 @@ export interface ResponseDelete {
   data: null;
 }
 
-interface Users {
+export interface Users {
   id: string;
   username: string;
   profile_name: string;

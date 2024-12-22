@@ -21,7 +21,7 @@ export interface ResponseDelete {
   data: null;
 }
 
-interface Testimonies {
+export interface Testimonies {
   id: string;
   client_name: string;
   description: string;

@@ -23,7 +23,7 @@ export interface ResponseDelete {
   data: null;
 }
 
-interface Blogs {
+export interface Blogs {
   id: string;
   title: string;
   body: string;

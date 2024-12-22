@@ -23,7 +23,7 @@ export interface ResponseDelete {
   data: null;
 }
 
-interface MyProjects {
+export interface MyProjects {
   id: string;
   user_id: string;
   title: string;

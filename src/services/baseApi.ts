@@ -3,12 +3,20 @@ import { fetchBaseQuery } from "@reduxjs/toolkit/query";
 import type { BaseQueryFn, FetchArgs, FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { toast } from "react-toastify";
 import PATH from "@config/path";
+import { ResponseRefreshToken } from "./auth/types";
 
-const BASE_URL = import.meta.env.VITE_BASE_URL_STG;
+const BASE_URL = import.meta.env.VITE_BASE_URL_DEV;
+let token: string | null = null;
 
 const baseQuery = fetchBaseQuery({
   baseUrl: BASE_URL,
   credentials: "include",
+  prepareHeaders: (headers) => {
+    if (token) {
+      headers.set("authorization", `Bearer ${token}`);
+    }
+    return headers;
+  },
 });
 
 export const baseQueryWithAuth: BaseQueryFn<string | FetchArgs, unknown, FetchBaseQueryError> = async (args, api, extraOptions) => {
@@ -19,6 +27,9 @@ export const baseQueryWithAuth: BaseQueryFn<string | FetchArgs, unknown, FetchBa
       const refreshResult = await baseQuery("/api/v1/admin/users/token", api, extraOptions);
 
       if (refreshResult.data) {
+        const data = refreshResult.data as ResponseRefreshToken;
+        token = data.data.token;
+
         result = await baseQuery(args, api, extraOptions);
       } else {
         throw new Error("Failed Auth");
