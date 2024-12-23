@@ -49,11 +49,9 @@ const Header: FC<HeaderProps> = ({ currentMenu, handleCurrentMenu, isShowMenuFlo
               <p className="text-grey font-semibold">{auth.profileName}</p>
               <p className="text-grey text-sm">{auth.role}</p>
             </div>
-            <div className="py-4 px-6 hover:bg-slate-100 hover:bg-opacity-30 cursor-pointer">
+            <div className="py-4 px-6 hover:bg-slate-100 hover:bg-opacity-30 cursor-pointer" onClick={setLogoutUserState}>
               <RiLogoutBoxLine className="text-grey inline-block mr-2" size={20} />
-              <span className="text-grey" onClick={setLogoutUserState}>
-                Log out
-              </span>
+              <span className="text-grey">Log out</span>
             </div>
           </div>
         )}
