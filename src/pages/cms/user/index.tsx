@@ -50,6 +50,8 @@ const ManageUserPage = () => {
           isLoading={isLoading}
           isError={isError}
           deleteHandler={deleteDataHandler}
+          page={1}
+          size={10}
         />
       </div>
       <ConfirmationModal

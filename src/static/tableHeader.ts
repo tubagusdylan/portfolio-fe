@@ -1,3 +1,4 @@
+import { Blogs } from "@services/blogs/types";
 import { Users } from "@services/users/types";
 
 export interface TableHeader<T> {
@@ -6,10 +7,6 @@ export interface TableHeader<T> {
 }
 
 export const USER_TABLE_HEADER: TableHeader<Users>[] = [
-  {
-    key: "id",
-    header: "Id",
-  },
   {
     key: "username",
     header: "Username",
@@ -25,5 +22,32 @@ export const USER_TABLE_HEADER: TableHeader<Users>[] = [
   {
     key: "created_at",
     header: "Date",
+  },
+];
+
+export const BLOG_TABLE_HEADER: TableHeader<Blogs>[] = [
+  {
+    key: "title",
+    header: "Title",
+  },
+  {
+    key: "body",
+    header: "Body",
+  },
+  {
+    key: "writer_name",
+    header: "Writer",
+  },
+  {
+    key: "category",
+    header: "Category",
+  },
+  {
+    key: "tags",
+    header: "Tags",
+  },
+  {
+    key: "updated_at",
+    header: "Updated",
   },
 ];

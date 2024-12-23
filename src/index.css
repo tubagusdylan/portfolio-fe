@@ -50,3 +50,23 @@
 .custom-modal{
   @apply mx-auto mt-48 bg-white w-[300px] lg:w-[400px] h-[180px] rounded-lg shadow-lg relative px-6 py-4 border border-slate-100;
 }
+
+.container {
+  @apply flex w-full max-w-full justify-center items-center gap-x-1;  
+}
+
+.container li {
+  @apply w-10 h-10 rounded-md flex items-center justify-center;
+}
+
+.container li:hover {
+  @apply bg-orange cursor-pointer text-white;
+}
+
+.container .previous, .container .next {
+  @apply border-2 border-orange font-semibold mx-4;
+}
+
+.container .selected {
+  @apply bg-orange text-white;
+}
