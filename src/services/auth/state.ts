@@ -5,6 +5,7 @@ import { useLogoutMutation } from "./api";
 import { toast } from "react-toastify";
 
 interface ParamPayload {
+  id: string;
   username: string;
   profileName: string;
   isAdmin: string;

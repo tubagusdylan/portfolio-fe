@@ -35,7 +35,7 @@ const EditUserPage = () => {
     return toast.error((response.error as any).data.message);
   };
 
-  const updateUserHandler = async (data: any) => {
+  const updateUserHandler = (data: any) => {
     setIsOpenModal(true);
     setNewData(data);
   };

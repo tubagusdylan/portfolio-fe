@@ -40,7 +40,7 @@ const Template: FC<TemplateProp> = ({ children }) => {
       />
       <div className="lg:flex w-full">
         <Sidebar handleCurrentMenu={(menu) => handleCurrentMenu(menu)} />
-        <div className="lg:w-[80%] lg:mt-28 lg:ml-[20%] lg:px-10">{children}</div>
+        <div className="lg:w-[80%] lg:mt-28 lg:ml-[20%] lg:px-10 mt-36 mx-6 lg:mx-0">{children}</div>
       </div>
     </>
   );

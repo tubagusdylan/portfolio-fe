@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 import { Blogs } from "@services/blogs/types";
 import { BLOG_TABLE_HEADER } from "@static/tableHeader";
 import Pagination from "@components/cms/Pagination";
+import SearchBlog from "@components/cms/SearchBlog";
 
 const ManageBlogPage = () => {
   const [id, setId] = useState("");
@@ -45,9 +46,28 @@ const ManageBlogPage = () => {
     setId(id);
   };
 
+  const onSearchBlog = (item: any) => {
+    setParamBlog((prev) => {
+      return {
+        ...prev,
+        title: item.title,
+        category: item.category,
+      };
+    });
+  };
+
+  const onResetSearchBlog = () => {
+    setParamBlog((prev) => {
+      return {
+        ...prev,
+        title: "",
+        category: "",
+      };
+    });
+  };
+
   const onPageChange = (event: any) => {
     const newPage = event.selected + 1;
-
     setParamBlog((prev) => {
       return {
         ...prev,
@@ -59,7 +79,8 @@ const ManageBlogPage = () => {
   return (
     <Template>
       <h1 className="text-2xl font-bold text-blue">Daftar Blog</h1>
-      <div className="flex justify-end">
+      <div className="flex justify-between items-center mt-6">
+        <SearchBlog onSearch={onSearchBlog} onResetSearch={onResetSearchBlog} />
         <Button variant="primary" type="add" size="md" onClick={() => navigate(PATH.ADD_BLOGS_PAGE)}>
           Tambah Blog
         </Button>

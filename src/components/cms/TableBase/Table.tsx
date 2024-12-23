@@ -35,13 +35,13 @@ function Table<T>({ theaders, tbodies, canEdit, canDelete, pathEdit, deleteHandl
       <tbody>
         {isLoading ? (
           <tr>
-            <td className="text-center py-2" colSpan={6}>
+            <td className="text-center py-2" colSpan={theaders.length + 2}>
               Loading...
             </td>
           </tr>
         ) : isError ? (
           <tr>
-            <td className="text-center py-2" colSpan={6}>
+            <td className="text-center py-2" colSpan={theaders.length + 2}>
               Data not found
             </td>
           </tr>

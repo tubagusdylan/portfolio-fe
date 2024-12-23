@@ -23,6 +23,7 @@ const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
     if (isSuccess) {
       const decoded: JwtPayload = jwtDecode(data?.data.token as string);
       const payload = {
+        id: decoded.id,
         username: decoded.username,
         profileName: decoded.profileName,
         isAdmin: decoded.isAdmin,

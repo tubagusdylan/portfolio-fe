@@ -6,7 +6,7 @@ interface ButtonProps {
   isLoading?: boolean;
   type?: "add" | "edit" | "delete" | "back";
   buttonType?: "submit" | "button";
-  variant: "primary" | "secondary";
+  variant: "primary" | "secondary" | "outline";
   children?: string;
   size?: string;
   onClick?: () => void;
@@ -15,7 +15,7 @@ interface ButtonProps {
 const Button: FC<ButtonProps> = ({ width, isLoading, type, children, size, buttonType, variant, onClick }) => {
   return (
     <button
-      className={`${variant === "primary" ? "primary-btn" : "secondary-btn"} lg:text-${size}  w-${width}`}
+      className={`${variant === "primary" ? "primary-btn" : variant === "secondary" ? "secondary-btn" : "outline-btn"} lg:text-${size} w-${width}`}
       onClick={onClick}
       type={buttonType}
       disabled={isLoading}>

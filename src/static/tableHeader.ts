@@ -31,10 +31,6 @@ export const BLOG_TABLE_HEADER: TableHeader<Blogs>[] = [
     header: "Title",
   },
   {
-    key: "body",
-    header: "Body",
-  },
-  {
     key: "writer_name",
     header: "Writer",
   },

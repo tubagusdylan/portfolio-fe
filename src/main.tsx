@@ -3,8 +3,8 @@ import ReactDOM from "react-dom/client";
 import AppRoute from "@config/route";
 import { store } from "@store/index";
 import { Provider } from "react-redux";
-import "./index.css";
 import { ToastContainer } from "react-toastify";
+import "./index.css";
 import "react-toastify/dist/ReactToastify.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
@@ -15,4 +15,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     </Provider>
   </React.StrictMode>
 );
+
+
+
+
+
 

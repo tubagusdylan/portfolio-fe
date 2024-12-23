@@ -14,10 +14,23 @@ export const blogApi = baseApi.injectEndpoints({
     }),
     getBlogs: builder.query<ResponseBlogs, { page: number; limit: number; category?: string; title?: string }>({
       query: (params) => {
+        let newParams: any = { page: params.page, limit: params.limit };
+        if (params.category && params.category.trim() !== "") {
+          newParams = {
+            ...newParams,
+            category: params.category,
+          };
+        }
+        if (params.title && params.title.trim() !== "") {
+          newParams = {
+            ...newParams,
+            title: params.title,
+          };
+        }
         return {
           url: `/api/v1/admin/blogs`,
           method: "GET",
-          params: params,
+          params: newParams,
         };
       },
       providesTags: [{ type: "Blogs", id: "LIST" }],
