@@ -12,6 +12,8 @@ import ManageBlogPage from "@pages/cms/blog";
 import AddBlogPage from "@pages/cms/blog/add";
 import EditBlogPage from "@pages/cms/blog/edit";
 import ManageProjectPage from "@pages/cms/my-project";
+import AddProjectPage from "@pages/cms/my-project/add";
+import EditProjectPage from "@pages/cms/my-project/edit";
 import ManageTestimoniePage from "@pages/cms/testimonie";
 import ErrorPage from "@pages/error";
 
@@ -85,6 +87,22 @@ const router = createBrowserRouter([
     element: (
       <AuthProvider>
         <ManageProjectPage />
+      </AuthProvider>
+    ),
+  },
+  {
+    path: PATH.ADD_PROJECTS_PAGE,
+    element: (
+      <AuthProvider>
+        <AddProjectPage />
+      </AuthProvider>
+    ),
+  },
+  {
+    path: `${PATH.EDIT_PROJECTS_PAGE}/:id`,
+    element: (
+      <AuthProvider>
+        <EditProjectPage />
       </AuthProvider>
     ),
   },

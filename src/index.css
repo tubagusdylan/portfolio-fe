@@ -48,7 +48,7 @@
 }
 
 .outline-btn {
-  @apply flex gap-x-2 items-center text-center border border-orange hover:bg-[#f8e7d2] text-[#ff6200] py-2 px-3 rounded-md  transition-all duration-300 ease-in-out;
+  @apply flex gap-x-2 items-center text-center border border-orange hover:bg-orange text-[#ff6200] hover:text-white py-2 px-3 rounded-md  transition-all duration-300 ease-in-out;
 }
 
 .custom-modal{

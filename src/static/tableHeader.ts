@@ -1,4 +1,5 @@
 import { Blogs } from "@services/blogs/types";
+import { MyProjects } from "@services/my-projects/types";
 import { Users } from "@services/users/types";
 
 export interface TableHeader<T> {
@@ -45,5 +46,28 @@ export const BLOG_TABLE_HEADER: TableHeader<Blogs>[] = [
   {
     key: "updated_at",
     header: "Updated",
+  },
+];
+
+export const PROJECT_TABLE_HEADER: TableHeader<MyProjects>[] = [
+  {
+    key: "title",
+    header: "Project Title",
+  },
+  {
+    key: "tech_stack",
+    header: "Tech Stack",
+  },
+  {
+    key: "github_url",
+    header: "Github",
+  },
+  {
+    key: "web_url",
+    header: "Web",
+  },
+  {
+    key: "created_at",
+    header: "Created",
   },
 ];

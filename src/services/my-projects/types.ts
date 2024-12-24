@@ -4,7 +4,7 @@ export interface BodyMyProject {
   title: string;
   tech_stack: string;
   github_url: string;
-  web_ur: string;
+  web_url: string;
 }
 
 export interface ResponsePost {
@@ -29,7 +29,7 @@ export interface MyProjects {
   title: string;
   tech_stack: string;
   github_url: string;
-  web_ur: string;
+  web_url: string;
   created_at: string;
 }
 

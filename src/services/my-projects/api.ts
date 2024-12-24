@@ -23,20 +23,46 @@ export const myProjectApi = baseApi.injectEndpoints({
     }),
     getMyProjects: builder.query<ResponseMyProjects, { page: number; limit: number; title?: string; tech_stack?: string }>({
       query: (params) => {
+        let newParams: any = { page: params.page, limit: params.limit };
+        if (params.title && params.title.trim() !== "") {
+          newParams = {
+            ...newParams,
+            title: params.title,
+          };
+        }
+        if (params.tech_stack && params.tech_stack.trim() !== "") {
+          newParams = {
+            ...newParams,
+            tech_stack: params.tech_stack,
+          };
+        }
         return {
           url: `/api/v1/admin/my-projects`,
           method: "GET",
-          params: params,
+          params: newParams,
         };
       },
       providesTags: [{ type: "MyProjects", id: "LIST" }],
     }),
     getPublicMyProjects: builder.query<ResponseMyProjects, { page: number; limit: number; title?: string; tech_stack?: string }>({
       query: (params) => {
+        let newParams: any = { page: params.page, limit: params.limit };
+        if (params.title && params.title.trim() !== "") {
+          newParams = {
+            ...newParams,
+            title: params.title,
+          };
+        }
+        if (params.tech_stack && params.tech_stack.trim() !== "") {
+          newParams = {
+            ...newParams,
+            tech_stack: params.tech_stack,
+          };
+        }
         return {
           url: `/api/v1/public/my-projects`,
           method: "GET",
-          params: params,
+          params: newParams,
         };
       },
       providesTags: [{ type: "MyProjects", id: "LIST" }],

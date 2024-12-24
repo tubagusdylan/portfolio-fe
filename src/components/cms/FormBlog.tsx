@@ -9,7 +9,7 @@ import Button from "./Button";
 import PATH from "@config/path";
 import Multiselect from "./Multiselect";
 import TextEditor from "./TextEditor";
-import { toArrayTags, toStringTags } from "@utils/blogTagsMap";
+import { stringToSelect, selectToString } from "@utils/multiSelectMap";
 
 interface FormBlogProps {
   action?: "add" | "edit";
@@ -53,7 +53,7 @@ const FormBlog: FC<FormBlogProps> = ({ action, dataEdit, isSuccessGetData, onSub
       title: title,
       body: bodies,
       category: category,
-      tags: toStringTags(tagsSelected),
+      tags: selectToString(tagsSelected),
     };
     onSubmit(data);
     onSetTitle("");
@@ -66,7 +66,7 @@ const FormBlog: FC<FormBlogProps> = ({ action, dataEdit, isSuccessGetData, onSub
     if (action === "edit" && isSuccessGetData) {
       onSetTitle(dataEdit?.title as string);
       onSetCategory(dataEdit?.category as string);
-      setTagsSelected(toArrayTags(dataEdit?.tags as string));
+      setTagsSelected(stringToSelect(dataEdit?.tags as string));
       setBodies(dataEdit?.body as string);
     }
   }, [isSuccessGetData]);
