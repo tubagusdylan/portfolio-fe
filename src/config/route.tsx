@@ -15,6 +15,7 @@ import ManageProjectPage from "@pages/cms/my-project";
 import AddProjectPage from "@pages/cms/my-project/add";
 import EditProjectPage from "@pages/cms/my-project/edit";
 import ManageTestimoniePage from "@pages/cms/testimonie";
+import TestimonieForm from "@components/TestimonieForm";
 import ErrorPage from "@pages/error";
 
 const router = createBrowserRouter([
@@ -113,6 +114,10 @@ const router = createBrowserRouter([
         <ManageTestimoniePage />
       </AuthProvider>
     ),
+  },
+  {
+    path: PATH.TESTI_FORM_PAGE,
+    element: <TestimonieForm />,
   },
   {
     path: "*",

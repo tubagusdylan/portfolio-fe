@@ -2,7 +2,6 @@ import { ChangeEvent, FC, FormEvent, useEffect, useState } from "react";
 import { useAppSelector } from "@services/hooks";
 import { useInputText } from "@hooks/useInputText";
 import { useNavigate } from "react-router-dom";
-import { useSelect } from "@hooks/useSelect";
 import { MyProjects } from "@services/my-projects/types";
 import { TECH_STACK } from "@static/projectConstant";
 import Button from "./Button";

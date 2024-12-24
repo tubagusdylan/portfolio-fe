@@ -39,7 +39,7 @@ function Table<T>({ theaders, tbodies, canEdit, canDelete, pathEdit, deleteHandl
               Loading...
             </td>
           </tr>
-        ) : isError ? (
+        ) : isError || tbodies === undefined ? (
           <tr>
             <td className="text-center py-2" colSpan={theaders.length + 2}>
               Data not found

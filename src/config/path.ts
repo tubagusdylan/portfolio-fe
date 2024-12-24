@@ -13,6 +13,7 @@ const PATH = {
   ADD_PROJECTS_PAGE: "/cms/my-projects/add",
   EDIT_PROJECTS_PAGE: "/cms/my-projects/edit",
   TESTI_PAGE: "/cms/testimonies",
+  TESTI_FORM_PAGE: "/testimonies/add",
 };
 
 export default PATH;
