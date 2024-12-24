@@ -38,7 +38,7 @@ export const baseQueryWithAuth: BaseQueryFn<string | FetchArgs, unknown, FetchBa
       toast.error("Your session has closed. Please login again.");
       setTimeout(() => {
         window.location.href = `${window.location.origin}${PATH.LOGIN_PAGE}`;
-      }, 1000);
+      }, 500);
     }
   }
 
